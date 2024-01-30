@@ -3,19 +3,29 @@ html {
   text-align: center;
 }
 
+/* this sets the border-box model so that padding/margins/borders are kept inside the element  */
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
 h1 {
   padding-bottom: 20px;
 }
 
 #board {
-  height: 540px;
-  width: 630px;
+  height: 580px;
+  width: 600px;
   min-height: 540px;
   background-color: blue;
   border: 10px solid black;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .tile {

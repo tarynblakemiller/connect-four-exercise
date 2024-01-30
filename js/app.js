@@ -1,5 +1,5 @@
 let columns = 7;
-let rows = 6;
+let rows = 7;
 
 //get the container element
 const boardElement = document.getElementById("board");
@@ -9,16 +9,18 @@ const gameBoard = [];
 
 //generates the board
 function makeBoard() {
-  for (let i = 0; i < rows; i++) {
-    gameBoard[i] = [];
-    for (let j = 0; j < columns; j++) {
-      const circle = document.createElement("div");
+  for (let x = 0; x < columns; x++) {
+    gameBoard[x] = [];
+    const column = document.createElement("col");
+    boardElement.appendChild(column);
+    for (let y = 0; y < rows; y++) {
+      const circle = document.createElement("tr");
       circle.className = "tile";
-      circle.id = "tile_id";
+      circle.id = "tile_id" + [y] + "-" + [x];
       //add it to board
       boardElement.appendChild(circle);
 
-      gameBoard[i][j] = "0";
+      gameBoard[x][y] = 0;
     }
   }
 }
@@ -31,3 +33,5 @@ function restart() {
     resetTiles[i].style.backgroundColor = "white";
   }
 }
+
+//use classList.toggle to toggle between red and yellow players
